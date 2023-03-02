@@ -18,6 +18,7 @@ public class DriversFactory {
 	private static final String IE_DRIVER_PATH = "./Drivers/IEDriverServer.exe";
 	private static final int IMPLICIT_WAIT_TIME = 5;
 	private static final int PAGE_LOAD_TIMEOUT = 5;
+	private static By cookieBtn = By.id("btnCookie");
 	
 	
 	public static void connect(String url) {
@@ -39,6 +40,7 @@ public class DriversFactory {
 		driver.get(url);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICIT_WAIT_TIME));
 		driver.manage().window().maximize();
+		driver.findElement(cookieBtn).click();;
 		System.out.println("Website Title: " + driver.getTitle());
 	}
 
